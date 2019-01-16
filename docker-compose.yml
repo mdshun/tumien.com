@@ -34,4 +34,4 @@ services:
     - db_data
 
   networks:
-    - tumien
+    - tumien:
