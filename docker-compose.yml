@@ -5,7 +5,7 @@ services:
     image: mysql:5.7
     container_name: tumien-db
     volumes:
-      - 'db_data:/var/lib/mysql'
+      - db_data:/var/lib/mysql
     restart: always
     networks:
       - tumien
@@ -20,14 +20,14 @@ services:
       - '8080:80'
     restart: always
     enviroment:
-      WORDPRESS_DB_HOST: 'db:3306'
+      WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_PASSWORD: secret
     networks:
       - tumien
     volumes:
-      - '$PWD:/var/www/html'
-      - '$PWD/.docker/backup:/tmp/backup'
-      - '$PWD/.docker/log:/tmp/log'
+      - $PWD:/var/www/html
+      - $PWD/.docker/backup:/tmp/backup
+      - $PWD/.docker/log:/tmp/log
     env_file: .env
 
   volumes:
