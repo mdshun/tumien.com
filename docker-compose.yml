@@ -30,8 +30,8 @@ services:
       - $PWD/.docker/log:/tmp/log
     env_file: .env
 
-  volumes:
-    - db_data
+volumes:
+  - db_data
 
-  networks:
-    - tumien:
+networks:
+  - tumien:
