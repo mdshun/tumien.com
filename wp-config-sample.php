@@ -26,13 +26,13 @@
 
 // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
 /** WordPress のためのデータベース名 */
-define('DB_NAME', 'tumien');
+define('DB_NAME', 'database_name_here');
 
 /** MySQL データベースのユーザー名 */
-define('DB_USER', 'mdshun');
+define('DB_USER', 'username_here');
 
 /** MySQL データベースのパスワード */
-define('DB_PASSWORD', 'hoiecyak');
+define('DB_PASSWORD', 'password_here');
 
 /** MySQL のホスト名 */
 define('DB_HOST', 'localhost');
@@ -44,7 +44,7 @@ define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
 /**#@+
- * 認証用ユニークキーxx
+ * 認証用ユニークキー
  *
  * それぞれを異なるユニーク (一意) な文字列に変更してください。
  * {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org の秘密鍵サービス} で自動生成することもできます。
@@ -52,14 +52,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'hy#*|R[Dz5B-.bEa$Cs{gT}#(*V0|f;z|;J%n}|-ag]8E9^j%.?Hwc%Xi=s{#pAA');
-define('SECURE_AUTH_KEY',  '+X%bnI(]gn(S.-a&:pGnl*pT2b.+iWEl.D4Z8pwN%IwZz0S7lYV`|dgS3X`NR.oz');
-define('LOGGED_IN_KEY',    'Q~|SEA7pQG]_X[XiASdb{jO=apI5$nShNipg0%~}KsLWhYMG,y{Mv*Dr@VZ.7K,A');
-define('NONCE_KEY',        'F6sTm=d=#b`bx4BUTcKj,EhR~gw5@9MO)ay&5Q+uGA5znt2/KYb9BOyPr;x=-`w0');
-define('AUTH_SALT',        'W-V8I4vLmv|_yK{TL.S<1fp|YVX1++cqp|-;5 b;+_ph+VM|C=e`hZDqB)`K=<>:');
-define('SECURE_AUTH_SALT', 'J}W/!6#5c|+@4&k,{|k$ k_?nPOc3W2gVEFBZ;<C8-4lfdVFEy|OzH43YREZ`7hQ');
-define('LOGGED_IN_SALT',   '-{#>e+<![?Nd3`e|r;M}_F%WktoPhoJJleSyyPt0C(4o!*]4.yCoP|EJl+}VV%%a');
-define('NONCE_SALT',       '#w/&m>3Q5xz70RF!7r53O= s0K})zv6/%~vy:J|4M@(N:thoI%6Jaz2DqP4jshzr');
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
 
 /**#@-*/
 
@@ -81,7 +81,7 @@ $table_prefix  = 'wp_';
  *
  * @link http://wpdocs.osdn.jp/WordPress%E3%81%A7%E3%81%AE%E3%83%87%E3%83%90%E3%83%83%E3%82%B0
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
 
