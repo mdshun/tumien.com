@@ -34,4 +34,4 @@ $required_php_version = '5.2.4';
  */
 $required_mysql_version = '5.0';
 
-$wp_local_package = 'ja';
+$wp_local_package = 'vi';

@@ -1,93 +1,89 @@
 <?php
 /**
- * WordPress の基本設定
+ * Cấu hình cơ bản cho WordPress
  *
- * このファイルは、インストール時に wp-config.php 作成ウィザードが利用します。
- * ウィザードを介さずにこのファイルを "wp-config.php" という名前でコピーして
- * 直接編集して値を入力してもかまいません。
+ * Trong quá trình cài đặt, file "wp-config.php" sẽ được tạo dựa trên nội dung 
+ * mẫu của file này. Bạn không bắt buộc phải sử dụng giao diện web để cài đặt, 
+ * chỉ cần lưu file này lại với tên "wp-config.php" và điền các thông tin cần thiết.
  *
- * このファイルは、以下の設定を含みます。
+ * File này chứa các thiết lập sau:
  *
- * * MySQL 設定
- * * 秘密鍵
- * * データベーステーブル接頭辞
+ * * Thiết lập MySQL
+ * * Các khóa bí mật
+ * * Tiền tố cho các bảng database
  * * ABSPATH
  *
- * @link http://wpdocs.osdn.jp/wp-config.php_%E3%81%AE%E7%B7%A8%E9%9B%86
+ * @link https://codex.wordpress.org/Editing_wp-config.php
  *
  * @package WordPress
  */
 
-// 注意:
-// Windows の "メモ帳" でこのファイルを編集しないでください !
-// 問題なく使えるテキストエディタ
-// (http://wpdocs.osdn.jp/%E7%94%A8%E8%AA%9E%E9%9B%86#.E3.83.86.E3.82.AD.E3.82.B9.E3.83.88.E3.82.A8.E3.83.87.E3.82.A3.E3.82.BF 参照)
-// を使用し、必ず UTF-8 の BOM なし (UTF-8N) で保存してください。
+// ** Thiết lập MySQL - Bạn có thể lấy các thông tin này từ host/server ** //
+/** Tên database MySQL */
+define('DB_NAME', 'ten_database');
 
-// ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
-/** WordPress のためのデータベース名 */
-define('DB_NAME', 'database_name_here');
+/** Username của database */
+define('DB_USER', 'username');
 
-/** MySQL データベースのユーザー名 */
-define('DB_USER', 'username_here');
+/** Mật khẩu của database */
+define('DB_PASSWORD', 'mat_khau');
 
-/** MySQL データベースのパスワード */
-define('DB_PASSWORD', 'password_here');
-
-/** MySQL のホスト名 */
+/** Hostname của database */
 define('DB_HOST', 'localhost');
 
-/** データベースのテーブルを作成する際のデータベースの文字セット */
+/** Database charset sử dụng để tạo bảng database. */
 define('DB_CHARSET', 'utf8');
 
-/** データベースの照合順序 (ほとんどの場合変更する必要はありません) */
+/** Kiểu database collate. Đừng thay đổi nếu không hiểu rõ. */
 define('DB_COLLATE', '');
 
 /**#@+
- * 認証用ユニークキー
+ * Khóa xác thực và salt.
  *
- * それぞれを異なるユニーク (一意) な文字列に変更してください。
- * {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org の秘密鍵サービス} で自動生成することもできます。
- * 後でいつでも変更して、既存のすべての cookie を無効にできます。これにより、すべてのユーザーを強制的に再ログインさせることになります。
+ * Thay đổi các giá trị dưới đây thành các khóa không trùng nhau!
+ * Bạn có thể tạo ra các khóa này bằng công cụ
+ * {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * Bạn có thể thay đổi chúng bất cứ lúc nào để vô hiệu hóa tất cả
+ * các cookie hiện có. Điều này sẽ buộc tất cả người dùng phải đăng nhập lại.
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         'khóa không trùng nhau');
+define('SECURE_AUTH_KEY',  'khóa không trùng nhau');
+define('LOGGED_IN_KEY',    'khóa không trùng nhau');
+define('NONCE_KEY',        'khóa không trùng nhau');
+define('AUTH_SALT',        'khóa không trùng nhau');
+define('SECURE_AUTH_SALT', 'khóa không trùng nhau');
+define('LOGGED_IN_SALT',   'khóa không trùng nhau');
+define('NONCE_SALT',       'khóa không trùng nhau');
 
 /**#@-*/
 
 /**
- * WordPress データベーステーブルの接頭辞
+ * Tiền tố cho bảng database.
  *
- * それぞれにユニーク (一意) な接頭辞を与えることで一つのデータベースに複数の WordPress を
- * インストールすることができます。半角英数字と下線のみを使用してください。
+ * Đặt tiền tố cho bảng giúp bạn có thể cài nhiều site WordPress vào cùng một database.
+ * Chỉ sử dụng số, ký tự và dấu gạch dưới!
  */
 $table_prefix  = 'wp_';
 
 /**
- * 開発者へ: WordPress デバッグモード
+ * Dành cho developer: Chế độ debug.
  *
- * この値を true にすると、開発中に注意 (notice) を表示します。
- * テーマおよびプラグインの開発者には、その開発環境においてこの WP_DEBUG を使用することを強く推奨します。
+ * Thay đổi hằng số này thành true sẽ làm hiện lên các thông báo trong quá trình phát triển.
+ * Chúng tôi khuyến cáo các developer sử dụng WP_DEBUG trong quá trình phát triển plugin và theme.
  *
- * その他のデバッグに利用できる定数については Codex をご覧ください。
+ * Để có thông tin về các hằng số khác có thể sử dụng khi debug, hãy xem tại Codex.
  *
- * @link http://wpdocs.osdn.jp/WordPress%E3%81%A7%E3%81%AE%E3%83%87%E3%83%90%E3%83%83%E3%82%B0
+ * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
 
-/* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
+/* Đó là tất cả thiết lập, ngưng sửa từ phần này trở xuống. Chúc bạn viết blog vui vẻ. */
 
-/** Absolute path to the WordPress directory. */
+/** Đường dẫn tuyệt đối đến thư mục cài đặt WordPress. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
-/** Sets up WordPress vars and included files. */
+/** Thiết lập biến và include file. */
 require_once(ABSPATH . 'wp-settings.php');
